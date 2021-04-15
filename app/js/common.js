@@ -1,15 +1,15 @@
-$(function() {
+$(function () {
 
 
 
-	/* Mask phone input */
-	$('.faq-name').click(function() {
+	/* SHOW/HIDDEN FAQ */
+	$('.faq-name').click(function () {
 		$(this).toggleClass('active')
-		.next()[$(this)
-		.next()
-		.is(':hidden') ? "slideDown" : "slideUp"](400);
+			.next()[$(this)
+				.next()
+				.is(':hidden') ? "slideDown" : "slideUp"](400);
 	});
-	/* Mask phone input */
+	/* SHOW/HIDDEN FAQ */
 
 
 
@@ -18,10 +18,15 @@ $(function() {
 		items: 1,
 		loop: true,
 		smartSpeed: 700,
+		autoHeight: true,
 		dots: true,
 		nav: true,
-		navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+		navText: ['<img class="img-responsive" src="../img/arrow-left.png">', '<img class="img-responsive" src="../img/arrow-right.png">'],
 		responsiveClass: true,
+		margin: 50,
+		autoplay: true,
+		autoplayTimeout: 5000,
+		autoplayHoverPause: true
 	});
 	/* Owl-carousel */
 
@@ -37,11 +42,12 @@ $(function() {
 		preloader: false,
 		midClick: true,
 		removalDelay: 300,
+		closeOnBgClick: false,
 		mainClass: 'my-mfp-slide-bottom',
 		callbacks: {
-			beforeOpen: function() {
+			beforeOpen: function () {
 				var $triggerEl = $(this.st.el),
-				newClass = $triggerEl.data("modal-class");
+					newClass = $triggerEl.data("modal-class");
 				if (newClass) {
 					this.st.mainClass = this.st.mainClass + ' ' + newClass;
 				}
@@ -52,59 +58,70 @@ $(function() {
 
 
 
-	/* CLOSE SUCCESS OPEN FORM */
-	$('.close-popup').on('click', function (e) {
-		e.preventDefault();
-		$(this).closest('.success').removeClass('visible');
-	})
-	/* CLOSE SUCCESS OPEN FORM */
-
-
-
 	/* E-mail Ajax Send */
-	$("form").submit(function(e) {
-		e.preventDefault;
+	$("form").submit(function (e) {
+		e.preventDefault();
 		var th = $(this);
 		$('.form').addClass('loading');
+
+		var email = th.find('[name=email]').val();
+		var name = th.find('[name="Имя"]').val();
+		var thanksWindow = window.open('thank-you.html', '_blank');
+		var openThanksWindowFunction = function () {
+			thanksWindow.location;
+		}
+
+		var data = {
+			email: email,
+			name: name,
+			start_day: "0",
+			campaign_token: "nAwze"
+		};
+
+		$.ajax({
+			url: "https://app.getresponse.com/add_subscriber.html",
+			type: "post",
+			data: data
+		});
+
 		$.ajax({
 			type: "POST",
-			url: "../send.php",
+			url: "send.php",
 			data: th.serialize()
-		}).done(function() {
+		}).done(function () {
 			$('.form').removeClass('loading');
-			$(".success").addClass("visible");
 			th.trigger("reset");
-			setTimeout(function() {
-				// Done Functions
-				$(".success").removeClass("visible");
-				$.magnificPopup.close();
-			}, 60000);
+			$.magnificPopup.close();
+			openThanksWindowFunction();
 		});
 		return false;
 	});
 	/* E-mail Ajax Send */
 
-
-
 });
 
 
-/* scroll menu function */
-function scrollMenu(selector, id){
-	$(selector).scrollspy({
-		min: $(selector).position().top-50,
-		max: ($(selector).position().top + $(selector).height()),
-		onEnter: function(element, position) {
-			$(".menu__item_active").removeClass("menu__item_active");
-			$(".menu__item a[data-num="+id+"]").parent().addClass("menu__item_active");
-		}
-	});
-}
-jQuery(document).ready(function(){
-	$('a[href^="#"].anchor').bind("click", function(e){
-		var anchor = $(this);
-		$('html, body').stop().animate({scrollTop: ($(anchor.attr('href')).offset().top - 35)}, 1000);
-		e.preventDefault();
-	});return false;
+
+/* SCROLL FOR HEADER */
+var windowHeight = $(window).height();
+
+$(document).ready(function ($) {
+	$(window).on('scroll touchmove', function () {
+		$('.header-fixed, .mobile-button').toggleClass('scrolled', $(document).scrollTop() > windowHeight);
+	}).scroll();
 });
-/* scroll menu function */
+/* SCROLL FOR HEADER */
+
+
+
+/* MENU TRIGGER FOR SCROLL */
+$(".header-link").click(function () {
+	elementClick = $(this).attr("href");
+	destination = $(elementClick).offset().top - 50;
+	destination = elementClick == '#home' ? destination - 20 : destination;
+	$("html,body").stop().animate({ scrollTop: destination }, 1000);
+	$(".hamburger").removeClass('is-active');
+	$('.menu').removeClass('active');
+	return false;
+});
+/* MENU TRIGGER FOR SCROLL */
