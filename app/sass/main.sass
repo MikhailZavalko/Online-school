@@ -37,7 +37,7 @@ body
 				// border-color: green
 
 .container
-	width: 1361px
+	width: 1250px
 	margin: 0 auto
 	padding: 0 20px
 	position: relative
@@ -47,71 +47,10 @@ body
 	max-width: 100%
 	height: auto
 
-
-
-.preloader
-	position: fixed
-	left: 0
-	top: 0
-	right: 0
-	bottom: 0
-	overflow: hidden
-	background: #1d1d1d
-	z-index: 1001
-
-.preloader_image
-	position: relative
-	top: 50%
-	left: 50%
-	width: 70px
-	height: 70px
-	margin-top: -35px
-	margin-left: -35px
-	text-align: center
-	animation: preloader-rotate 2s infinite linear
-
-@keyframes preloader-rotate
-	100%
-		transform: rotate(360deg)
-
-.loaded_hiding .preloader
-	transition: 0.3s opacity
-	opacity: 0
-
-.loaded .preloader
-	display: none
-
-
-
 section
 	padding: 80px 0 115px 0
 	position: relative
 	background: #ffffff
-	.right-box-sm, .left-box-sm
-		position: absolute
-		width: 141px
-		height: 256px
-		background: url('../img/small-box.png') center no-repeat
-	.right-box-sm
-		right: 0
-	.left-box-sm
-		left: 0
-		transform: scale(-1, 1)
-	.left-box-big, .right-box-big
-		position: absolute
-		width: 232px
-		height: 402px
-		background: url('../img/big-box.png') center no-repeat
-	.left-box-big
-		left: 0
-	.right-box-big
-		right: 0
-		transform: scale(-1, 1)
-	.right-logo-sm, .left-logo-sm
-		position: absolute
-		width: 171px
-		height: 171px
-		background: url('../img/blur-logo-sm.png') center no-repeat
 
 h3.type-head
 	font-size: 48px
@@ -158,31 +97,14 @@ h3.type-head
 			position: relative
 			color: #fff
 
-.mobile-button
-	display: none
-	transition: $time
-	width: 100%
-	justify-content: center
-	position: fixed
-	top: -50px
-	right: 0
-	padding: 7px
-	z-index: 3
-	opacity: 0
-	visibility: hidden
-	.button
-		height: 45px
-		font-weight: 400
-	&.scrolled
-		display: none
 		
 
 .button
-	color: #161616
-	height: 69px
+	color: $fontcolor
+	height: 50px
 	width: 100%
-	font-weight: 500
-	font-size: 18px
+	font-weight: 400
+	font-size: 14px
 	text-align: center
 	outline: none
 	position: relative
@@ -191,31 +113,18 @@ h3.type-head
 	align-items: center
 	justify-content: center
 	text-decoration: none
-	box-shadow: inset 0px 3px 0px 0px rgba(255, 255, 255, 0.18)
 	background: $buttonbg
 	padding: 3px
 	border-radius: 10em
 	transition: $time
-	&:after
-		content: ''
-		position: absolute
-		top: 0
-		left: 0
-		width: 100%
-		height: 100%
-		background: $buttonbghover
-		border-radius: 10em
-		transition: $time
-		z-index: 2
-		opacity: 0
 	&.button-header
 		height: auto
 		font-size: 14px
 		font-weight: 400
 		text-transform: none
-		height: 45px
-		margin-left: 42px
-		min-width: 210px
+		height: 42px
+		margin-left: 96px
+		min-width: 232px
 		color: #211E1E
 		box-shadow: none
 		&:focus, &:hover, &:active
@@ -243,7 +152,7 @@ h3.type-head
 	position: fixed
 	top: 0
 	background-color: #fff
-	padding: 10px 0
+	padding: 14px 0
 	z-index: 110
 	transition: $time
 	.container
@@ -251,6 +160,7 @@ h3.type-head
 		justify-content: space-between
 	.right-side
 		display: flex
+		align-items: center
 	.mail-link
 		text-decoration: none
 		font-size: 16px
@@ -259,10 +169,15 @@ h3.type-head
 		align-items: center
 		white-space: nowrap
 		transition: $time
-		img
-			margin-right: 15px
+		svg
+			margin-right: 10px
+			path
+				transition: $time
 		&:hover
 			color: $accent
+			svg
+				path
+					fill: $accent
 
 
 
@@ -277,7 +192,7 @@ h3.type-head
 	.top-logo-sm
 		display: none
 	.container
-		margin-top: 175px
+		margin-top: 90px
 		display: flex
 		justify-content: center
 		flex-direction: column
@@ -291,60 +206,56 @@ h3.type-head
 		img
 			margin: 0 auto
 	h1
-		margin: 0 0 45px 0
+		margin: 0 0 60px 0
 		line-height: 1.3
-		font-size: 46px
-		font-weight: 950
+		font-size: 35px
+		font-weight: 900
 		color: #fff
-		.head-bg
-			display: inline-block
-			// position: relative
-			// padding-right: 10px
-			// &::after
-			// 	content: ''
-			// 	position: absolute
-			// 	top: 0
-			// 	left: -17px
-			// 	clip-path: polygon(0 0, 100% 0, 100% 100%, 25px 100%)
-			// 	background: url('../img/headers-bg.png') center no-repeat
-			// 	width: calc(100% + 17px) 
-			// 	height: 100%
-			// 	z-index: 1
-			// span
-			// 	z-index: 2
-			// 	position: relative
-	p
-		font-size: 18px
-		font-weight: 400
-		line-height: 1.5
-		margin-bottom: 100px
 		span
-			font-weight: 800
 			color: $accent
+	.top-items-grid
+		display: grid
+		grid-gap: 57px
+		grid-template-columns: repeat(6, 1fr)
+		margin-bottom: 68px
+		p
+			font-size: 13px
+			font-weight: 400
+			line-height: 1.5
+			margin: 15px 0 0
+			span
+				font-weight: 800
+				color: $accent
+	.top-section-button
+		display: flex
+		align-items: center
+		margin-bottom: 50px
+		.button
+			margin-right: 40px
+			max-width: 275px
+		p
+			font-size: 13px
+			margin: 0
+			line-height: 1.4
 	.top-section-links
 		display: flex
 		justify-content: space-between
-	.button
-		max-width: 290px
-	.publicaation
+	.publication
 		width: 500px
+		p
+			font-size: 14px
+			font-weight: 300
+			margin: 0 0 15px
 		.links
 			display: flex
 			flex-direction: column
 			.line
 				display: flex
 				justify-content: space-between
-				&:not(:last-child)
-					margin-bottom: 15px
-		p
-			font-size: 14px
-			margin: 0 0 15px
 		a
 			color: #fff
 			text-decoration: none
 			display: block
-			margin-bottom: 6px
-			display: inline-block
 			span
 				display: inline-block
 				position: relative
@@ -357,20 +268,6 @@ h3.type-head
 					height: 2px
 					background-color: transparent
 					transition: $time
-			&:hover
-				span
-					&::after
-						background-color: #fff
-			&.philosopher
-				span
-					font-family: Philosopher-g, sans-serif
-			&.sm-public
-				span
-					font-size: 28px
-		span
-			display: block
-			font-size: 40px
-			line-height: 1
 
 
 
