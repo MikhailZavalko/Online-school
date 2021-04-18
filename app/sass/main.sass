@@ -275,7 +275,6 @@ h3.type-head
 		display: flex
 		justify-content: flex-start
 		align-items: flex-end
-		// min-height: 130px
 		margin-bottom: 24px
 	p
 		line-height: 1.4
@@ -315,6 +314,11 @@ h3.type-head
 	padding: 90px 0
 	text-align: left
 	position: relative
+	.callback-form
+		z-index: 3
+	&.second
+		img
+			left: 52px
 	img
 		position: absolute
 		bottom: -90px
@@ -631,235 +635,193 @@ h3.type-head
 
 
 .variants-section
-	padding: 60px 0 105px 0
-	.right-box-sm
-		top: 930px
-	.left-box-sm
-		bottom: 0
+	padding: 80px 0 40px 0
+	.container
+		display: flex
+		flex-direction: column
+		justify-content: center
 	.variants-block
 		display: grid
-		grid-template-columns: repeat(2, 1fr)
-		grid-gap: 46px
+		grid-template-columns: 465px 465px
+		grid-gap: 64px
+		margin: auto
 	.variant
-		box-shadow: 0px 0px 21px 0px rgba(27, 28, 31, 0.18)
-		border-radius: 5px
-		overflow: hidden
-		&.brand
+		box-shadow: 0px 4px 22px 19px rgba(0, 0, 0, 0.04)
+		border-radius: 4px
+		position: relative
+		padding-top: 44px
+		&.esclusive
 			.name
-				background: $accent
+				background: $yellow
+				color: $fontcolor
 			ul
 				li
 					&::before
 						background: url(../img/confirmed-yellow.png) center no-repeat
 		.name
-			background: $fontcolor
-			position: relative
+			background: $accent
 			color: #fff
 			text-align: center
-			height: 55px
+			height: 48px
+			position: absolute
+			top: -20px
+			left: 30px
+			display: flex
+			z-index: 2
+			border-radius: 4px
 			h4
 				font-size: 24px
 				font-weight: 900
+				padding: 11px 33px
 				margin: 0
-				position: absolute
-				width: 100%
-				height: 100%
-				text-align: left
 				display: flex
 				align-items: center
-				padding-left: 44px
 		ul
 			margin: 0
 			padding: 0
 			li
 				list-style-type: none
 				line-height: 1.4
-				padding: 13px 12px 13px 44px
+				padding: 12px 18px 12px 40px
 				background: #ffffff
 				position: relative
-				span
-					font-weight: 800
-					font-size: 18px
-				&:not(:last-child)
-					border-bottom: 1px solid #d8d8d8
-				&::before
-					content: ''
-					position: absolute
-					width: 9px
-					height: 9px
-					left: 25px
-					top: 17px
-					background: url('../img/confirmed-black.png') center no-repeat
-					background-size: cover
-				&.no-icon
-					&::before
-						display: none
-				&.strong
-					font-weight: 700
+				font-size: 14px
+				text-indent: -10px
 				&.top-border
-					border-top: 1px solid $accent
-		.with-button
-			padding: 27px 44px 45px 44px
-			background: #fff
+					border-top: 1px solid #D8D8D8
+					color: $accent
+					padding-left: 30px
+					text-indent: 0
+					font-weight: 700
+		.price-button
+			padding: 32px 35px 32px 39px
+			background: $accent
+			color: #fff
+			p
+				font-size: 14px
+				margin: 0 0 19px
+				span
+					font-size: 16px
+					font-weight: 900
+			div
+				display: flex
+				p
+					&:not(:last-child)
+						margin-right: 43px
+						
 			.button
-				max-width: 433px
+				max-width: 390px
 				color: $fontcolor
 
 
 
-.our-result-section
-	background: #161616
-	color: #ffffff
-	h3.type-head
-		color: #ffffff
-	.button
-		max-width: 435px
-		margin: 50px auto 0 auto
-.result-block
-	display: flex
-	justify-content: space-between
-	align-items: flex-start
-	padding: 55px 0
-	&:not(:last-child)
-		border-bottom: 1px solid rgba(255, 144, 0, 0.2)
-	&:nth-child(odd)
-		flex-direction: row-reverse
-		.result-text
-			margin-left: 0
-			margin-right: 83px
-.video-link
-	height: 343px
-	width: 590px
-	flex-shrink: 0
-	display: block
+.founder-section
+	padding: 40px 0 75px 0
 	background-size: cover
-	position: relative
-	border-radius: 10px
-	.play-button
-		position: absolute
-		width: 100%
-		height: 100%
-		display: flex
-		flex-direction: column
-		justify-content: space-around
-		align-items: flex-start
-		.logo
-			margin-left: 52px
-		.play
-			transition: transform $time
-			align-self: center
-		.play-descr
+	h3.type-head
+		text-align: left
+		margin-left: 637px
+		margin-bottom: 24px
+	.text
+		margin-left: 637px
+		position: relative
+		img
+			position: absolute
+			left: -650px
+			bottom: -75px
+		span
 			font-size: 18px
-			color: #fff
-			background: rgba(#161616,.8)
-			padding: 7px 20px
-			margin-left: 55px
-			display: inline-table
-	&:hover
-		.play-button
-			.play
-				transform: scale(1.3)
-.result-text
-	font-size: 30px
-	margin-left: 90px
+			margin: 0
+		p
+			font-size: 14px
+			margin: 18px 0 0px
+			line-height: 3.1
+			span
+				font-size: 14px
+				font-weight: 700
+
+
+
+.example-section
+	padding: 80px 0
+	background: #f0f0f0
+	h3.type-head
+		text-align: left
+		margin-bottom: 15px
+	.example-grid
+		display: grid
+		grid-template-columns: 50% 50%
+		grid-gap: 84px
+		p
+			max-width: 604px
+			font-size: 18px
+			line-height: 2.2
+		.button
+			max-width: 390px
+			margin: 0
+
+
+
+.conference-section
+	padding: 70px 0 90px
+	h3.type-head
+		margin-bottom: 30px
+	.conference-grid
+		display: grid
+		grid-template-columns: auto auto
+		grid-gap: 30px
+		margin-bottom: 27px
+	h4
+		font-size: 24px
+		font-weight: 700
+		line-height: 1.4
+		margin: 23px 0 19px
 	span
 		font-size: 18px
-		line-height: 1.1
-		margin-bottom: 25px
-		display: block
-	.name
-		font-size: 18px
 		font-weight: 700
-		margin-bottom: 0
 	p
-		font-size: 16px
-		line-height: 1.3
-		margin-bottom: 30px
-		margin-top: 0
-	.description
-		font-weight: 800
-		margin-bottom: 0
+		margin: 5px 0 0
+		line-height: 1.7
+	.button
+		max-width: 391px
+		span
+			font-size: 14px
+			font-weight: 400
+
 	
 
-
-
-.shop-results-section
-	overflow: hidden
-	.right-logo-sm
-		right: 50px
-		top: 320px
-	.left-logo-sm
-		left: 30px
-		top: 700px
-	.right-logo-big, .left-logo-big
-		position: absolute
-		width: 392px
-		height: 183px
-		background: url('../img/blur-logo-big.png')
-	.right-logo-big
-		right: -155px
-		top: 790px
-	.left-logo-big
-		top: 184px
-		left: -110px
-	.results-block
-		display: grid
-		grid-template-columns: auto auto auto
-		justify-content: space-around
-		.column
-			display: flex
-			flex-direction: column
-			justify-content: space-between
-			align-items: center
-
-
-
-.want-know-section
-	background: url('../img/want-know-bg.jpg') center no-repeat
-	background-size: cover
-	color: #ffffff
-	h3.type-head
-		color: #ffffff
-	.result-block
-		flex-direction: row
-		.result-text
-			margin-right: 0
-			margin-left: 105px
-			h3.type-head
-				line-height: 0.9
-				text-align: left
-				margin-bottom: 30px
-			p
-				line-height: 1.5
-				margin-bottom: 45px
-			.button
-				max-width: 430px
-				span
-					margin-bottom: 0
+.info-section
+	padding: 0
+	display: grid
+	grid-template-columns: 50% 50%
+	background: #F0F0F0
+	.left
+		background: url('../img/info-img.jpg') center no-repeat
+		background-size: cover
+	.right
+		img
+			margin: 7px 0 0 55px
+		p
+			max-width: 478px
+			margin: 18px 0 128px 96px
+			line-height: 1.9
+			font-size: 18px
 
 
 
 .faq-section
-	padding-bottom: 45px
-	.right-box-sm
-		top: 900px
-		z-index: 
-	.left-box-sm
-		top: 350px
-		&.second
-			top: 1500px
+	padding-bottom: 246px
 	h3.type-h
 		margin-bottom: 50px
 	.faq-block
 		display: grid
 		grid-template-columns: repeat(2, 1fr)
-		grid-gap: 110px
+		grid-gap: 70px
 	.faq
 		.faq-name
 			background: #ffffff
-			padding: 20px 20px 20px 55px
-			box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.11)
-			margin-bottom: 45px
+			padding: 9px 20px 0 55px
+			margin-bottom: 30px
 			cursor: pointer
 			position: relative
 			transition: $time
@@ -868,27 +830,27 @@ h3.type-head
 				top: 20px
 				left: 20px
 				width: 15px
-				height: 15px
-				background-color: $fontcolor
+				height: 15px 
 				transition: $time
 				&::after, &::before
 					content: ''
 					position: absolute
-					background-color: #fff
+					background-color: $accent
 					top: 50%
 					left: 50%
 					transform: translate(-50%, -50%)
+					transition: $time
 				&::after
-					width: 10px
+					width: 24px
 					height: 4px
+				&::before
+					width: 4px
+					height: 24px
 			&.active
-				color: $accent
-				text-decoration: underline
 				.icon
-					background-color: $accent
 					&::before
-						width: 4px
-						height: 10px
+						width: 0
+						height: 0
 			&:hover
 				color: $accent
 			h4
@@ -899,81 +861,9 @@ h3.type-head
 		p
 			display: none
 			margin: 25px 0 45px 25px
-			font-weight: 300
-			font-size: 14px
-			span
-				font-weight: 700
-
-.item-info
-	display: flex
-	margin-top: 43px
-	&-img
-		flex-shrink: 0
-		margin-right: 13px
-		margin-top: 5px
-	&-text
-		h4
-			font-size: 14px
-			font-weight: 900
-			line-height: 1
-			margin-bottom: 10px
-		p
-			font-size: 14px
 			font-weight: 400
-			line-height: 1.2
-
-.advantage-item
-	display: inline-block
-	margin-bottom: 54px
-	.adv-img
-		height: 65px
-	img
-		margin-left: auto
-		margin-right: auto
-	h4
-		font-size: 16px
-		font-weight: 600
-		margin-top: 18px
-		margin-bottom: 0
-		line-height: 1.2
-	p
-		font-size: 16px
-		font-weight: 300
-		margin: 0
-		line-height: 1.2
-
-.features-section
-	background-color: $yellow
-	padding-bottom: 90px
-
-.content-center
-	display: flex
-	justify-content: center
-
-.type-section
-	.type-div
-		background-color: $accent
-		color: #fff
-		text-align: center
-		font-size: 20px
-		font-weight: 400
-		line-height: 1.2
-		padding: 20px 30px
-		p
-			margin: 0
-	&.why-select-section
-		background: url('../img/why-select.jpg') center no-repeat
-		background-size: cover
-		color: #fff
-		padding-bottom: 40px
-		h3.type-h
-			span
-				color: $green
-		.advantage-item
-			h4, p
-				text-align: center
-		.button
-			margin-top: 40px
+			font-size: 14px
+			line-height: 1.5
 
 
 
@@ -1092,6 +982,7 @@ h3.type-head
 .footer
 	padding: 30px 0 15px
 	color: $fontcolor
+	border-top: 1px solid #CFCFCF
 	.menu-time
 		display: flex
 		justify-content: space-between
