@@ -196,6 +196,7 @@ h3.type-head
 	.top-section-button
 		display: flex
 		align-items: center
+		justify-content: flex-start
 		margin-bottom: 50px
 		.button
 			margin-right: 40px
@@ -966,10 +967,10 @@ h3.type-head
 		font-size: 12px
 		font-weight: 300
 		line-height: 1.2
-		color: rgba(#fff,.5)
+		color: $fontcolor
 		margin: 0
 	a
-		color: rgba(#fff,.5)
+		color: $fontcolor
 		text-decoration: underline
 		&:hover
 			text-decoration: none
@@ -981,69 +982,32 @@ h3.type-head
 
 .footer
 	padding: 30px 0 15px
-	color: $fontcolor
+	color: #B5B5B5
 	border-top: 1px solid #CFCFCF
-	.menu-time
-		display: flex
-		justify-content: space-between
-		border-bottom: 1px solid $fontcolor
-		padding-bottom: 25px
-		.footer-menu, .time
-			display: flex
-			align-items: center
-		.footer-menu
-			font-size: 16px
-			font-weight: 700
-			h2, h4
-				font-size: 16px
-				margin: 0
-				display: inline-block
-			span
-				margin-right: 57px
-			.menu
-				a
-					color: $fontcolor
-					h4
-						text-decoration: underline
-					&:not(:last-child)
-						margin-right: 55px
-					&:hover
-						h4
-							text-decoration: none
-		.time
-			span
-				font-size: 14px
-				font-weight: 300
-				margin-left: 10px
-	.main-footer
-		display: flex
+	.line
+		display: grid
+		grid-auto-flow: column
+		grid-gap: 50px
 		justify-content: space-between
 		align-items: center
-		padding-top: 15px
 		font-size: 14px
-		font-weight: 300
-		p
-			line-height: 1.3
-			margin: 0
-	.footer-button
 		color: $fontcolor
-		text-decoration: underline
-		text-align: center
-		display: block
-		line-height: 1.3
-		&:hover
-			text-decoration: none
-	.contacts
-		display: flex
-		align-items: center
+		span
+			font-size: 14px
 		a
 			color: $fontcolor
-			display: flex
-			align-items: center
-			justify-content: center
 			text-decoration: none
-			&:not(:last-child)
-				margin-right: 17px
+			transition: $time
+			&:hover
+				color: $accent
+	.adults-only
+		font-size: 14px
+		line-height: 1.1
+		margin: 20px 0 25px
+	p
+		font-size: 12px
+		line-height: 1.3
+		margin: 0
 
 
 
@@ -1053,8 +1017,6 @@ h3.type-head
 
 .popup-form
 	max-width: 560px
-	background-color: rgba(#181818,.9)
-	color: #ffffff
 	span
 		font-size: 30px
 		font-weight: 800
@@ -1064,6 +1026,9 @@ h3.type-head
 		line-height: 1.4
 		span
 			font-size: 18px
+			font-weight: 400
+	.button
+		span
 			font-weight: 400
 
 .mfp-close-btn-in .mfp-close
