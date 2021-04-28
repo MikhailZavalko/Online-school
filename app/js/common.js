@@ -63,36 +63,24 @@ $(function () {
 		e.preventDefault();
 		var th = $(this);
 		$('.form').addClass('loading');
-
-		var email = th.find('[name=email]').val();
-		var name = th.find('[name="Имя"]').val();
-		var thanksWindow = window.open('thank-you.html', '_blank');
-		var openThanksWindowFunction = function () {
-			thanksWindow.location;
-		}
-
-		var data = {
-			email: email,
-			name: name,
-			start_day: "0",
-			campaign_token: "nAwze"
-		};
-
-		$.ajax({
-			url: "https://app.getresponse.com/add_subscriber.html",
-			type: "post",
-			data: data
-		});
-
+		// var thanksWindow = window.open('thank-you.html', '_blank');
+		// var openThanksWindowFunction = function () {
+		// 	thanksWindow.location;
+		// }
 		$.ajax({
 			type: "POST",
 			url: "send.php",
 			data: th.serialize()
 		}).done(function () {
 			$('.form').removeClass('loading');
-			th.trigger("reset");
-			$.magnificPopup.close();
-			openThanksWindowFunction();
+			$(".success").addClass("visible");
+			setTimeout(function() {
+				// Done Functions
+				th.trigger("reset");
+				$(".success").removeClass("visible");
+				$.magnificPopup.close();
+			}, 14000);
+			// openThanksWindowFunction();
 		});
 		return false;
 	});
